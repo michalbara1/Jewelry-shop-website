@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <link href="home.css" rel="stylesheet">
+  <title>COCO jewlery</title>
+</head>
+
+<body>
+  <header>
+    <span>
+      <a href="/login" class='fa fa-user' style='font-size: 32px;'></a> &nbsp
+      <i class="fa fa-shopping-cart" style='font-size: 32px;'></i> &nbsp
+      <i class='fa fa-heart-o' style='font-size: 32px;'></i> &nbsp
+    </span>
+     
+    <p id="username"></p>
+
+    <div>
+      <canvas id="myCanvas" width="300" height="100"> </canvas>
+      <img id="logoImage" src="logo%20picture.webp" style="width: 150px; height: 150px;">
+    </div>
+
+  </header>
+
+
+  <div class="topnav">
+
+    <a class="active" href="/">Home</a>
+
+    <div class="dropdown">
+      <a href="/Rings" class="dropbtn">Rings</a>
+      <div class="dropdown-content">
+        <a href="/Silver rings">Silver rings</a>
+        <a href="/Gold rings">Gold rings</a>
+        <a href="/Wedding rings">Wedding rings</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="/Necklaces" class="dropbtn">Necklaces</a>
+      <div class="dropdown-content">
+        <a href="/Silver necklaces">Silver necklaces</a>
+        <a href="/Gold necklaces">Gold necklaces</a>
+        <a href="/Pearls necklaces">Pearls necklaces</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <a href="/Bracelets" class="dropbtn">Bracelets</a>
+      <div class="dropdown-content">
+        <a href="/Silver bracelets">Silver bracelets</a>
+        <a href="/Gold bracelets">Gold bracelets</a>
+        <a href="/Anklets">Anklets</a>
+      </div>
+    </div>
+
+
+    <a href="/BEST SELLERS">BEST SELLERS</a>
+
+    <a href="/SALE">SALE</a>
+
+    <a href="/Contact">Contact</a>
+
+    <a href="/About">About</a>
+
+    <a href="/Admin">Admin</a>
+
+  </div>
+
+
+  <div>
+    <br>
+    <i class='fa fa-search'></i>
+    <input type="text" id="searchbar" name="fname" placeholder="Search products"></input>
+  </div>
+
+
+  </section>
+
+  <div class="container-signup">
+    <h1 class="container-h"></h1><br>
+    <h4 class="container-h"></h4>
+  </div>
+
+
+  <div id="images"> </div>
+
+
+  <br>
+  <div class="container-signup2">
+    <h1 class="container-h"></h1><br>
+    <h4 class="container-h"></h4><br>
+  </div>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>New Arrivals</h1>
+      <h2 id="secondline">Shop Now</h2>
+    </div>
+  </div>
+
+  <footer class="Contact">
+    <div class="col">
+      <h4>Contact</h4>
+      <p><strong>Addres</strong> : Elie Wiesel 2 Rishon LeZion</p>
+      <p><strong>Phone</strong> : 03-963-4000</p>
+      <p><strong>Hours</strong> : 10:00 - 18:00,Sunday-Thursday</p>
+      <div class="contact">
+        <h4>Contact with us</h4>
+        <div class="icon">
+          <a href="https://wa.me/039628930" target="_blank"> <i class="fa fa-whatsapp" style='font-size:25px;'></i>
+            <a href="mailto:Maitala@college.org.il" target="_blank"><i class="fa fa-envelope"
+                style='font-size:25px;'></i>
+              <a href="https://www.facebook.com/ColmanAguda" target="_blank"><i class="fa fa-facebook-f"
+                  style='font-size:25px;'></i>
+                <a href="https://www.instagram.com/colmanaguda/" target="_blank"> <i class="fa fa-instagram"
+                    style='font-size:25px;'></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Contact Us</a>
+
+    </div>
+
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="#">Sign In</a>
+      <a href="#">View Cart</a>
+      <a href="#">My Wishlist</a>
+      <a href="#">Track My Order</a>
+      <a href="#">Help</a>
+
+    </div>
+
+    <div class="col"></div>
+    <h4>Secured Payment Getways</h4>
+    <div class="payment">
+      <i class="fa fa-cc-visa" style='font-size:29px;'></i>
+      <i class="fa fa-cc-paypal" style='font-size:29px;'></i>
+      <i class="fa fa-cc-mastercard" style='font-size:29px;'></i>
+      <i class="fa fa-cc-amex" style='font-size:29px;'></i>
+    </div>
+
+
+  </footer>
+  <div class="copyright">
+    <p>&copy; 2023, COCO JEWELRY</p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      $('input').autocomplete({
+        source: ['wedding ring', 'silver ring']
+
+
+      })
+    })
+
+  </script>
+   <script src="app.js"> </script>
+   <script src="home.js"> </script>
+
+
+</body>
+
+</html>
