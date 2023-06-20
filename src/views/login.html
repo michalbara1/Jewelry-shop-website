@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +7,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-  <link href="home.css" rel="stylesheet">
-  <title>COCO jewlery</title>
+  <link href="login&signup.css" rel="stylesheet">
+  <script src="app.js"> </script>
+  
+  
+  <title>login</title>
 </head>
 
 <body>
@@ -18,7 +22,7 @@
       <i class='fa fa-heart-o' style='font-size: 32px;'></i> &nbsp
     </span>
      
-    <p id="username"></p>
+    <p class="username"></p>
 
     <div>
       <canvas id="myCanvas" width="300" height="100"> </canvas>
@@ -79,31 +83,59 @@
     <input type="text" id="searchbar" name="fname" placeholder="Search products"></input>
   </div>
 
-
-  </section>
-
-  <div class="container-signup">
-    <h1 class="container-h"></h1><br>
-    <h4 class="container-h"></h4>
+<div class="container-signup">
+    <h1 class="container-h" >My Account</h1><br>
+    <h4 class="container-h">home/login</h4>
   </div>
-
-
-  <div id="images"> </div>
-
-
+  
   <br>
+  
+  <div class="container">
+    <h1 class="form-title">Login</h1>
+    <form action="#" id="login-form">
+      <title>Sign in</title>
+      <p class="title">Please sign in</p>
+      <div class="thing">
+        <input type="email" class="boxes" id="email" placeholder="Enter Email" />
+        <input
+          type="password"
+          class="boxes"
+          id="password"
+          placeholder="Enter Password"
+        />
+        <div class="btns">
+          <button type="button" id="signin" class="btn btn-primary">
+            sign in
+          </button>
+        </div>
+      </div>
+      <!--<div class="main-user-info">
+        <div class="user-input-box">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter Username" required>
+          <div class="error-message" id="username-error"></div>
+        </div>
+        <div class="user-input-box">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password" required>
+          <div class="error-message" id="password-error"></div>
+        </div>
+        <div class="register">Don't have an account? <a class="register" href="/signup">sign up here</a></div>
+      </div>-->
+      <!--<div class="form-submit-btn">
+        <button type="submit">Login</button>
+
+      </div>-->
+    </form>
+  </div>
+  <br>
+
   <div class="container-signup2">
-    <h1 class="container-h"></h1><br>
+    <h1 class="container-h" ></h1><br>
     <h4 class="container-h"></h4><br>
   </div>
 
-  <div class="hero-section">
-    <div class="hero-content">
-      <h1>New Arrivals</h1>
-      <h2 id="secondline">Shop Now</h2>
-    </div>
-  </div>
-
+ 
   <footer class="Contact">
     <div class="col">
       <h4>Contact</h4>
@@ -113,13 +145,10 @@
       <div class="contact">
         <h4>Contact with us</h4>
         <div class="icon">
-          <a href="https://wa.me/039628930" target="_blank"> <i class="fa fa-whatsapp" style='font-size:25px;'></i>
-            <a href="mailto:Maitala@college.org.il" target="_blank"><i class="fa fa-envelope"
-                style='font-size:25px;'></i>
-              <a href="https://www.facebook.com/ColmanAguda" target="_blank"><i class="fa fa-facebook-f"
-                  style='font-size:25px;'></i>
-                <a href="https://www.instagram.com/colmanaguda/" target="_blank"> <i class="fa fa-instagram"
-                    style='font-size:25px;'></i>
+          <i class="fa fa-whatsapp" style='font-size:25px;'></i>
+          <i class="fa fa-envelope" style='font-size:25px;'></i>
+          <i class="fa fa-facebook-f" style='font-size:25px;'></i>
+          <i class="fa fa-instagram" style='font-size:25px;'></i>
         </div>
       </div>
     </div>
@@ -159,38 +188,8 @@
     <p>&copy; 2023, COCO JEWELRY</p>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-  <script>
-    $(function () {
-      $('input').autocomplete({
-        source: ['wedding ring', 'silver ring']
-
-
-      })
-    })
-     
-    const clientname = document.getElementById("username");
-
-let storage;
-
-if (localStorage.getItem("user") !== null) {
-  storage = JSON.parse(localStorage.getItem("user"));
-}
-if (!storage) {
-  clientname.innerHTML = "";
-}
- else {
-  clientname.innerHTML = ` Welcome, ${storage.firstname}`;
-}
-
-  </script>
-   <script src="app.js"> </script>
-   <script src="home.js"> </script>
-
-
 </body>
+<script src="signin.js"></script>
+
 
 </html>
