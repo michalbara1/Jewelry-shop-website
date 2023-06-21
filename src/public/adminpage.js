@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var welcomeMessage = document.getElementById('welcomeMessage');
   var createButton = document.getElementById('allcreate');
   var updateButton = document.getElementById('allupdate');
+  var deleteButton= document.getElementById('alldelete');
 
   // Make the buttons not visible until the manager enters their username and password
   createButton.style.display = 'none';
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
       welcomeMessage.textContent = 'Hello, Manager';
       createButton.style.display = 'block';
       updateButton.style.display = 'block';
+      deleteButton.style.display= 'block';
       loginForm.style.display = 'none';
     } else {
       // Not the manager
@@ -76,4 +78,37 @@ document.getElementById("createbtn").addEventListener("click", async () => {
   newname.value = "";
   newprice.value = "";
   newimg.value = "";
+});
+
+document.getElementById("deleteBtn").addEventListener("click", async () => {
+  try {
+    const response = await fetch("/api/deleteProduct", {
+      method: "DELETE",
+      body: JSON.stringify({
+        name: delname.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage);
+    }
+
+    // Product deleted successfully
+    console.log("Product deleted successfully");
+
+    // Check if the clicked element is a button
+    /*
+    if (e.target.tagName.toLowerCase() === "button") {
+      // Refresh the site
+      location.reload();
+    }*/
+  } catch (error) {
+    console.error("Error deleting product:", error.message);
+  }
+  delname.value="";
+ 
 });

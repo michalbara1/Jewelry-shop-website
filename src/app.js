@@ -5,6 +5,7 @@ const { createRouter } = require("./routes/create");
 const { updateRouter } = require("./routes/update");
 const { getRouter } = require("./routes/get");
 const { signinRouter } = require("./routes/signin");
+const { deleteRouter } = require("./routes/delete");
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(createRouter);
 app.use(updateRouter);
 app.use(getRouter);
 app.use(signinRouter);
+app.use(deleteRouter);
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./views/home.html"));
