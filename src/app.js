@@ -6,6 +6,7 @@ const { updateRouter } = require("./routes/update");
 const { getRouter } = require("./routes/get");
 const { signinRouter } = require("./routes/signin");
 const { deleteRouter } = require("./routes/delete");
+const productRouter = require("./routes/search");
 
 
 const app = express();
@@ -22,19 +23,19 @@ app.use(signinRouter);
 app.use(deleteRouter);
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/home.html"));
-  });
+  res.sendFile(path.join(__dirname, "./views/home.html"));
+});
 
 app.get("/admin", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/admin.html"));
-  });
+  res.sendFile(path.join(__dirname, "./views/admin.html"));
+});
 
-  app.get("/login", (req, res) => {
-    res.sendFile(path.join(__dirname, "./views/login.html"));
-  });
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "./views/login.html"));
+});
 const start = async () => {
   await mongoose.connect(
-    "mongodb://127.0.0.1:27017/products" );
+    "mongodb://127.0.0.1:27017/products");
 
   app.listen(3300, () => {
     console.log("Servers up");
