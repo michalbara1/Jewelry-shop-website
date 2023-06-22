@@ -6,7 +6,7 @@ const { updateRouter } = require("./routes/update");
 const { getRouter } = require("./routes/get");
 const { signinRouter } = require("./routes/signin");
 const { deleteRouter } = require("./routes/delete");
-
+const{updateCartRouter} = require("./routes/cart");
 
 const app = express();
 
@@ -31,6 +31,9 @@ app.get("/admin", (req, res) => {
 
   app.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "./views/login.html"));
+  });
+  app.get("/cart", (req, res) => {
+    res.sendFile(path.join(__dirname, "./views/cart.html"));
   });
 const start = async () => {
   await mongoose.connect(

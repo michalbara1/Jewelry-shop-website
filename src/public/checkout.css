@@ -1,0 +1,107 @@
+/* Custom CSS for the given HTML */
+
+/* Set background color for the body */
+.bg-body-tertiary {
+    background-color: #f8f9fa;
+  }
+  
+  /* Style the dropdown button and menu */
+  .dropdown {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Style the primary button */
+  .btn-bd-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+  
+  /* Style the theme icons */
+  .theme-icon-active {
+    fill: #0d6efd;
+  }
+  
+  .theme-icon {
+    fill: #6c757d;
+    opacity: 0.5;
+  }
+  
+  /* Center the logo */
+  .py-5 .d-block {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Style the primary badge */
+  .badge.bg-primary {
+    background-color: #0d6efd;
+  }
+  
+  /* Style the form inputs and labels */
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    border-radius: 0.25rem;
+  }
+  
+  .invalid-feedback {
+    display: none;
+  }
+  
+  /* Style the form checkboxes */
+  .form-check-label {
+    font-weight: normal;
+  }
+  
+  /* Style the form submit button */
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5c636a;
+    border-color: #5c636a;
+  }
+  
+  /* Style the form select inputs */
+  .form-select {
+    border-radius: 0.25rem;
+  }
+  
+  /* Style the horizontal rule */
+  .my-4 {
+    border-top: 1px solid #dee2e6;
+  }
+  
+  /* Style the form checkboxes */
+  .form-check-input:checked + .form-check-label::before {
+    border-color: #0d6efd;
+    background-color: #0d6efd;
+  }
+  
+  /* Show the checkmark for active theme option */
+  .active .bi {
+    display: inline-block;
+  }
+  
+  /* Style the list group */
+  .list-group {
+    border: none;
+  }
+  
+  .list-group-item {
+    background-color: #fff;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
