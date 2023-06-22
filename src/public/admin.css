@@ -162,3 +162,17 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.product-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.product-table th,
+.product-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.product-table th {
+  background-color: #f2f2f2;
+}
