@@ -99,16 +99,59 @@ document.getElementById("deleteBtn").addEventListener("click", async () => {
 
     // Product deleted successfully
     console.log("Product deleted successfully");
-
-    // Check if the clicked element is a button
-    /*
-    if (e.target.tagName.toLowerCase() === "button") {
-      // Refresh the site
-      location.reload();
-    }*/
   } catch (error) {
     console.error("Error deleting product:", error.message);
   }
   delname.value="";
  
 });
+
+fetch("/api/getProducts")
+  .then(response => response.json())
+  .then(products => {
+    generateProductElements(products);
+  })
+  .catch(error => {
+    console.error("Error fetching products:", error.message);
+  });
+
+  function generateProductElements(products) {
+    const productContainer = document.getElementById("productContainer");
+  
+    // Clear any existing product elements
+    productContainer.innerHTML = "";
+  
+    // Create the table structure
+    const table = document.createElement("table");
+    table.classList.add("product-table");
+  
+    // Create the table header
+    const tableHeader = document.createElement("tr");
+    const nameHeader = document.createElement("th");
+    nameHeader.textContent = "Product Name";
+    const priceHeader = document.createElement("th");
+    priceHeader.textContent = "Price";
+    tableHeader.appendChild(nameHeader);
+    tableHeader.appendChild(priceHeader);
+    table.appendChild(tableHeader);
+  
+    // Iterate over the products and create table rows for each product
+    products.forEach(product => {
+      const tableRow = document.createElement("tr");
+  
+      const nameCell = document.createElement("td");
+      nameCell.textContent = product.name;
+  
+      const priceCell = document.createElement("td");
+      priceCell.textContent = "$" + product.price;
+  
+      tableRow.appendChild(nameCell);
+      tableRow.appendChild(priceCell);
+  
+      table.appendChild(tableRow);
+    });
+  
+    productContainer.appendChild(table);
+  }
+  
+

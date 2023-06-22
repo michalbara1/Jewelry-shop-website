@@ -17,7 +17,7 @@
       <a href="/cart" class="fa fa-shopping-cart" style='font-size: 32px;'></a> &nbsp
       <i class='fa fa-heart-o' style='font-size: 32px;'></i> &nbsp
     </span>
-     
+
     <p id="username"></p>
 
     <div>
@@ -76,119 +76,185 @@
   <div>
     <br>
     <i class='fa fa-search'></i>
-    <input type="text" id="searchbar" name="fname" placeholder="Search products"></input>
-  </div>
+    <h1>Product Search</h1>
+    <form id="search-form">
+      <label for="search">Search:</label>
+      <input type="text" id="search" name="search">
+      <br>
+      <label for="genre">Genre:</label>
+      <select id="genre" name="genre">
+        <option value="All">All</option>
+        <option value="rings">Rings</option>
+        <option value="neckless">Necklaces</option>
+        <option value="breclets">Bracelets</option>
+      </select>
+      <br>
+      <label for="sort">Sort by:</label>
+      <select id="sort" name="sort">
+        <option value="rating">Rating</option>
+        <option value="price">Price</option>
+        <!-- Add more options if needed -->
+      </select>
+      <br>
+      <button type="submit">Search</button>
+    </form>
 
-
-  </section>
-
-  <div class="container-signup">
-    <h1 class="container-h"></h1><br>
-    <h4 class="container-h"></h4>
-  </div>
-
-
-  <div id="images"> </div>
-
-
-  <br>
-  <div class="container-signup2">
-    <h1 class="container-h"></h1><br>
-    <h4 class="container-h"></h4><br>
-  </div>
-
-  <div class="hero-section">
-    <div class="hero-content">
-      <h1>New Arrivals</h1>
-      <h2 id="secondline">Shop Now</h2>
+    <div id="results">
+      <!-- Display the search results here -->
     </div>
-  </div>
 
-  <footer class="Contact">
-    <div class="col">
-      <h4>Contact</h4>
-      <p><strong>Addres</strong> : Elie Wiesel 2 Rishon LeZion</p>
-      <p><strong>Phone</strong> : 03-963-4000</p>
-      <p><strong>Hours</strong> : 10:00 - 18:00,Sunday-Thursday</p>
-      <div class="contact">
-        <h4>Contact with us</h4>
-        <div class="icon">
-          <a href="https://wa.me/039628930" target="_blank"> <i class="fa fa-whatsapp" style='font-size:25px;'></i>
-            <a href="mailto:Maitala@college.org.il" target="_blank"><i class="fa fa-envelope"
-                style='font-size:25px;'></i>
-              <a href="https://www.facebook.com/ColmanAguda" target="_blank"><i class="fa fa-facebook-f"
-                  style='font-size:25px;'></i>
-                <a href="https://www.instagram.com/colmanaguda/" target="_blank"> <i class="fa fa-instagram"
-                    style='font-size:25px;'></i>
-        </div>
+    <script>
+      document.getElementById("search-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        const search = document.getElementById("search").value;
+        const genre = document.getElementById("genre").value;
+        const sort = document.getElementById("sort").value;
+
+        // Make the HTTP request to the server
+        fetch(`/products?search=${search}&genre=${genre}&sort=${sort}`)
+          .then(response => response.json())
+          .then(data => {
+            // Process and display the search results
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = ""; // Clear previous results
+
+            if (!data.error) {
+              const products = data.products;
+              for (let i = 0; i < products.length; i++) {
+                // Create and append HTML elements for each product
+                const productDiv = document.createElement("div");
+                productDiv.innerHTML = `
+                                <h2>${products[i].name}</h2>
+                                <p>Rating: ${products[i].rating}</p>
+                                <p>Price: ${products[i].price}</p>
+                                <!-- Add more details as needed -->
+                            `;
+                resultsDiv.appendChild(productDiv);
+              }
+            } else {
+              // Handle any error messages
+              resultsDiv.innerHTML = `<p>Error: ${data.message}</p>`;
+            }
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "<p>An error occurred while fetching the search results.</p>";
+          });
+      });
+    </script>
+
+
+    </section>
+
+    <div class="container-signup">
+      <h1 class="container-h"></h1><br>
+      <h4 class="container-h"></h4>
+    </div>
+
+
+    <div id="images"> </div>
+
+
+    <br>
+    <div class="container-signup2">
+      <h1 class="container-h"></h1><br>
+      <h4 class="container-h"></h4><br>
+    </div>
+
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1>New Arrivals</h1>
+        <h2 id="secondline">Shop Now</h2>
       </div>
     </div>
 
-    <div class="col">
-      <h4>About</h4>
-      <a href="#">About us</a>
-      <a href="#">Delivery Information</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Contact Us</a>
+    <footer class="Contact">
+      <div class="col">
+        <h4>Contact</h4>
+        <p><strong>Addres</strong> : Elie Wiesel 2 Rishon LeZion</p>
+        <p><strong>Phone</strong> : 03-963-4000</p>
+        <p><strong>Hours</strong> : 10:00 - 18:00,Sunday-Thursday</p>
+        <div class="contact">
+          <h4>Contact with us</h4>
+          <div class="icon">
+            <a href="https://wa.me/039628930" target="_blank"> <i class="fa fa-whatsapp" style='font-size:25px;'></i>
+              <a href="mailto:Maitala@college.org.il" target="_blank"><i class="fa fa-envelope"
+                  style='font-size:25px;'></i>
+                <a href="https://www.facebook.com/ColmanAguda" target="_blank"><i class="fa fa-facebook-f"
+                    style='font-size:25px;'></i>
+                  <a href="https://www.instagram.com/colmanaguda/" target="_blank"> <i class="fa fa-instagram"
+                      style='font-size:25px;'></i>
+          </div>
+        </div>
+      </div>
 
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+
+      </div>
+
+      <div class="col"></div>
+      <h4>Secured Payment Getways</h4>
+      <div class="payment">
+        <i class="fa fa-cc-visa" style='font-size:29px;'></i>
+        <i class="fa fa-cc-paypal" style='font-size:29px;'></i>
+        <i class="fa fa-cc-mastercard" style='font-size:29px;'></i>
+        <i class="fa fa-cc-amex" style='font-size:29px;'></i>
+      </div>
+
+
+    </footer>
+    <div class="copyright">
+      <p>&copy; 2023, COCO JEWELRY</p>
     </div>
 
-    <div class="col">
-      <h4>My Account</h4>
-      <a href="#">Sign In</a>
-      <a href="#">View Cart</a>
-      <a href="#">My Wishlist</a>
-      <a href="#">Track My Order</a>
-      <a href="#">Help</a>
-
-    </div>
-
-    <div class="col"></div>
-    <h4>Secured Payment Getways</h4>
-    <div class="payment">
-      <i class="fa fa-cc-visa" style='font-size:29px;'></i>
-      <i class="fa fa-cc-paypal" style='font-size:29px;'></i>
-      <i class="fa fa-cc-mastercard" style='font-size:29px;'></i>
-      <i class="fa fa-cc-amex" style='font-size:29px;'></i>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+      integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <script>
+      $(function () {
+        $('input').autocomplete({
+          source: ['wedding ring', 'silver ring']
 
 
-  </footer>
-  <div class="copyright">
-    <p>&copy; 2023, COCO JEWELRY</p>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-  <script>
-    $(function () {
-      $('input').autocomplete({
-        source: ['wedding ring', 'silver ring']
-
-
+        })
       })
-    })
-     
-    const clientname = document.getElementById("username");
 
-let storage;
+      const clientname = document.getElementById("username");
 
-if (localStorage.getItem("user") !== null) {
-  storage = JSON.parse(localStorage.getItem("user"));
-}
-if (!storage) {
-  clientname.innerHTML = "";
-}
- else {
-  clientname.innerHTML = ` Welcome, ${storage.firstname}`;
-}
+      let storage;
 
-  </script>
-   <script src="app.js"> </script>
-   <script src="home.js"> </script>
+      if (localStorage.getItem("user") !== null) {
+        storage = JSON.parse(localStorage.getItem("user"));
+      }
+      if (!storage) {
+        clientname.innerHTML = "";
+      }
+      else {
+        clientname.innerHTML = ` Welcome, ${storage.firstname}`;
+      }
+
+    </script>
+    <script src="app.js"> </script>
+    <script src="home.js"> </script>
 
 
 </body>
