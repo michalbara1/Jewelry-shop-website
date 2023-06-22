@@ -1,4 +1,8 @@
 
+
+if (localStorage.getItem("user") !== null) {
+  storage = JSON.parse(localStorage.getItem("user"));
+}
 const fetchimages = async () => {
   const res = await fetch("/api/getProducts");
   const products = await res.json();
@@ -21,7 +25,15 @@ const fetchimages = async () => {
     price.style.fontSize = "25px";
     price.style.fontFamily = "Monospace";
     const buy = document.createElement("button");
+    buy.id = image.name;
     buy.innerHTML = "Buy";
+    // Add event listener to the Buy button
+    buy.addEventListener("click", () => {
+      addToCart(buy.id, image.price);
+      console.log(localStorage.getItem("user"));
+    });
+
+
 
     col.className = "col col-3";
     col.appendChild(image.image);
@@ -32,4 +44,28 @@ const fetchimages = async () => {
     document.getElementById("images").appendChild(col);
   });
 };
+
+const userId = storage._id;
+const addToCart = async (productName, price) => {
+  
+    const res = await fetch("/api/addToCart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId,
+        productName,
+        price,
+      }),
+    });
+    const data = await res.json();
+    console.log(data);
+    localStorage.setItem("user", JSON.stringify(data));
+
+  
+};
+
+
 fetchimages();
+

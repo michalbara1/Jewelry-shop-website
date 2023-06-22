@@ -21,6 +21,9 @@ const userSchema = new mongoose.Schema({
   admin: {
     type: Boolean,
   },
+  cart:{
+   type:Object,
+  },
 });
 
 const User = mongoose.model("user", userSchema);
