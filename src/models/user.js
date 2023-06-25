@@ -24,6 +24,12 @@ const userSchema = new mongoose.Schema({
   cart:{
    type:Object,
   },
+ 
+  transaction: {
+    type: [Array, []],
+  },
+
+  
 });
 
 const User = mongoose.model("user", userSchema);

@@ -8,14 +8,18 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
   <link href="home.css" rel="stylesheet">
   <title>COCO jewlery</title>
+  
 </head>
 
 <body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v17.0" nonce="y01fDr7g"></script>
   <header>
     <span>
       <a href="/login" class='fa fa-user' style='font-size: 32px;'></a> &nbsp
       <a href="/cart" class="fa fa-shopping-cart" style='font-size: 32px;'></a> &nbsp
       <i class='fa fa-heart-o' style='font-size: 32px;'></i> &nbsp
+      <a class="myOrderslink" href="/myOrders">My Orders</a>
     </span>
 
     <p id="username"></p>
@@ -162,7 +166,13 @@
       <h1 class="container-h"></h1><br>
       <h4 class="container-h"></h4><br>
     </div>
-
+    <br>
+    <div class="fb-page" data-href="https://www.facebook.com/MagnoliaIsrael/" data-tabs="timeline" data-width="500" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+      <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
+          <a href="https://www.facebook.com/facebook">‏‎Facebook‎‏</a>
+      </blockquote>
+  </div>
+  <br>
     <div class="hero-section">
       <div class="hero-content">
         <h1>New Arrivals</h1>
@@ -253,6 +263,7 @@
       }
 
     </script>
+
     <script src="app.js"> </script>
     <script src="home.js"> </script>
 
