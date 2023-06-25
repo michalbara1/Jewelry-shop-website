@@ -81,69 +81,6 @@ document.getElementById("transaction").addEventListener("click", async (e) => {
   }
 });
 
-// המתודה validateForm מבצעת את הבדיקות ומחזירה אמת או שקר בהתאם לתוצאה
-function validateForm() {
-  // קבלת אלמנטים של הטופס
-  var firstName = document.getElementById("firstName");
-  var lastName = document.getElementById("lastName");
-  var email = document.getElementById("email");
-  var address = document.getElementById("address");
-
-  // בדיקת תקינות שדות הטופס
-  if (firstName.value === "") {
-    alert("Please enter your first name");
-    return false;
-  }
-
-  if (lastName.value === "") {
-    alert("Please enter your last name");
-    return false;
-  }
-
-  if (email.value === "") {
-    alert("Please enter your email address");
-    return false;
-  }
-
-  if (address.value === "") {
-    alert("Please enter your address");
-    return false;
-  }
-
-  // אם התקינות של כל השדות עוברת, הפונקציה תחזיר אמת
-  return true;
-}
-
-// הוספת אירוע לחיצה על כפתור השליחה עם בדיקת תקינות הטופס
-document.getElementById("transaction").addEventListener("click", async (e) => {
-  e.preventDefault();
-
-  // בדיקת תקינות הטופס
-  if (!validateForm()) {
-    return;
-  }
-
-  const res = await fetch("/api/transaction", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ userid: storage._id }),
-  });
-
-  const data = await res.json();
-  localStorage.setItem("user", JSON.stringify(data));
-
-  // ניקוי הטופס והרשימה לאחר ביצוע העסקה
-  while (cartlist.firstChild) {
-    cartlist.removeChild(cartlist.firstChild);
-  }
-
-  // הודעת הוספה או כל פעולה נוספת שתרצה לבצע לאחר ביצוע העסקה
-  alert("Transaction completed successfully!");
-});
-
-
  // קביעת אירוע לחיצה על הכפתור
 document.getElementById("transaction").addEventListener("click", function(event) {
   event.preventDefault(); // מניעת השליחה הרגילה של הטופס

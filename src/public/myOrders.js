@@ -2,9 +2,19 @@ const storage = JSON.parse(localStorage.getItem("user"));
 if (!storage) {
   location.href = "/";
 }
+console.log(storage.transaction);
 
 const orderlist = document.getElementById("orderlist");
+storage.transaction.map((transaction)=>{
+for (const key of Object.keys(transaction[0]))
+{
+  const li = document.createElement("li");
+  li.innerHTML = `${key} ($${transaction[0][key].price})`;
+  orderlist.appendChild(li);
+}
 
+})
+/*
 // Clear any existing order elements
 orderlist.innerHTML = "";
 
@@ -47,4 +57,4 @@ li.appendChild(span);
 li.appendChild(strong);
 orderlist.appendChild(li);
 
-document.getElementById("numofprod").innerHTML = count;
+document.getElementById("numofprod").innerHTML = count;*/
