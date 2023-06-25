@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Shop</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #555;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        /* Main Content Styles */
+        .container {
+            margin: 20px auto;
+            max-width: 1000px;
+            /* Adjust the max-width as needed */
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* Adjust the number of products per row */
+            grid-gap: 20px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        .product p {
+            margin: 0;
+        }
+
+        /* Filter Styles */
+        .filter-bar {
+            margin-bottom: 20px;
+        }
+
+        .filter-bar input[type="text"],
+        .filter-bar select {
+            margin-right: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Online Shop</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Back To Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to our Online Shop!</h1>
+
+        <div class="filter-bar">
+            <input type="text" placeholder="Search products" id="searchInput">
+            <select id="categorySelect">
+                <option value="All">All</option>
+                <option value="Rings">Rings</option>
+                <option value="Necklaces">Necklaces</option>
+                <option value="Bracelets">Bracelets</option>
+            </select>
+
+            <select id="priceSelect">
+                <option value="All">All prices</option>
+                <option value="0-50">$0 - $50</option>
+                <option value="50-100">$50 - $100</option>
+                <option value="100-200">$100 - $200</option>
+                <option value="200+">$200+</option>
+            </select>
+            <button type="button">Apply Filters</button>
+        </div>
+
+        <div class="products-container" id="productsContainer">
+            <!-- Add more product divs here -->
+        </div>
+
+
+    </div>
+
+    <footer>
+        &copy; 2023 Online Shop. All rights reserved.
+    </footer>
+</body>
+
+<script>
+    // Fetch all products from MongoDB
+    fetch('/products')
+        .then(response => response.json())
+        .then(products => {
+            const productsContainer = document.getElementById('productsContainer');
+            const searchInput = document.getElementById('searchInput');
+            const categorySelect = document.getElementById('categorySelect');
+            const priceSelect = document.getElementById('priceSelect');
+
+            // Function to filter products based on search input, category, and price
+            const filterProducts = () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                const category = categorySelect.value;
+                const price = priceSelect.value;
+
+                // Filter products based on search term, category, and price
+                const filteredProducts = products.filter(product =>
+                    product.name.toLowerCase().includes(searchTerm) &&
+                    (category === 'All' || product.category === category) &&
+                    (price === 'All' || (price === '0-50' && product.price <= 50) ||
+                        (price === '50-100' && product.price > 50 && product.price <= 100) ||
+                        (price === '100-200' && product.price > 100 && product.price <= 200) ||
+                        (price === '200+' && product.price > 200))
+                );
+                // Generate HTML for filtered products or all products if search input is empty
+                const productHTML = (searchTerm !== '' || category !== 'All' || price !== 'All')
+                    ? filteredProducts.map(product => {
+                        return `
+              <div class="product">
+                <img src="img/${product.name}.jpg" alt="${product.name}">
+                <h3>name: ${product.name}</h3>
+                <h3>price: $${product.price}</h3>
+                <p>${product.description}</p>
+              </div>
+            `;
+                    }).join('')
+                    : products.map(product => {
+                        return `
+              <div class="product">
+                <img src="img/${product.name}.jpg" alt="${product.name}">
+                <h3>name: ${product.name}</h3>
+                <h3>price: $${product.price}</h3>
+                <button class=""> add to cart</button>
+              </div>
+            `;
+                    }).join('');
+
+                // Inject the generated product HTML into the products container
+                productsContainer.innerHTML = productHTML;
+            };
+
+            // Event listeners for search input, category select, and price select
+            searchInput.addEventListener('input', filterProducts);
+            categorySelect.addEventListener('change', filterProducts);
+            priceSelect.addEventListener('change', filterProducts);
+
+            // Initial rendering of all products
+            filterProducts();
+        })
+        .catch(error => console.error(error));
+</script>
+
+
+
+</html>

@@ -1,96 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/public/admin.css" rel="stylesheet">
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="topnav">
 
-      <a class="active" href="/">Home</a>
-      
-      <div class="dropdown">
-        <a href="/Rings" class="dropbtn">Rings</a>
-        <div class="dropdown-content">
-          <a href="/Silver rings">Silver rings</a>
-          <a href="/Gold rings">Gold rings</a>
-          <a href="/Wedding rings">Wedding rings</a>
-        </div>
-      </div>
-      
-      <div class="dropdown">
-        <a href="/Necklaces" class="dropbtn">Necklaces</a>
-        <div class="dropdown-content">
-          <a href="/Silver necklaces">Silver necklaces</a>
-          <a href="/Gold necklaces">Gold necklaces</a>
-          <a href="/Pearls necklaces">Pearls necklaces</a>
-        </div>
-      </div>
-      
-      <div class="dropdown">
-        <a href="/Bracelets" class="dropbtn">Bracelets</a>
-        <div class="dropdown-content">
-          <a href="/Silver bracelets">Silver bracelets</a>
-          <a href="/Gold bracelets">Gold bracelets</a>
-          <a href="/Anklets">Anklets</a>
-        </div>
-      </div>
-      
-      
-      <a href="/BEST SELLERS">BEST SELLERS</a>
-      
-      <a href="/SALE">SALE</a>
-      
-      <a href="/Contact">Contact</a>
-      
-      <a href="/About">About</a>
-      
-      <a href="/Admin">Admin</a>
-      
-      </div>
-      
-      <form action="#" id="getinform">
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" id="uname" required>
-      
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" id="psw" required>
-      
-          <button type="submit" id="login">Login</button>
-        </div>
-      
-        <div class="container" style="background-color:#f1f1f1">
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-      </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/public/admin.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
 
-      <h1 id="welcomeMessage"> </h1>
-    <div id="allupdate">
-      
-      <input id="prodname" placeholder="name of product" />
-      <input id="prodprice" placeholder="enter new price" />
-      <button id="updatebtn">Update</button>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="topnav">
+
+    <a class="active" href="/">Home</a>
+
+    <div class="dropdown">
+      <a href="/Rings" class="dropbtn">Rings</a>
+      <div class="dropdown-content">
+        <a href="/Silver rings">Silver rings</a>
+        <a href="/Gold rings">Gold rings</a>
+        <a href="/Wedding rings">Wedding rings</a>
+      </div>
     </div>
-    <div id="allcreate">
-      <input id="newprod" placeholder="name of product" />
-      <input id="newprice" placeholder="enter new price" />
-      <input type="file" id="newimg" />
-      <button id="createbtn">CREATE</button>
 
-
-      <div id="alldelete">
-        <input id="delname" placeholder="name of product you want to delete" />
-        <button id="deleteBtn">Delete</button>
-
-        <h3>List</h3>
-
-     <div id="productContainer"></div>
-    
-
+    <div class="dropdown">
+      <a href="/Necklaces" class="dropbtn">Necklaces</a>
+      <div class="dropdown-content">
+        <a href="/Silver necklaces">Silver necklaces</a>
+        <a href="/Gold necklaces">Gold necklaces</a>
+        <a href="/Pearls necklaces">Pearls necklaces</a>
+      </div>
     </div>
-    <script src="/adminpage.js"></script>
-  </body>
+
+    <div class="dropdown">
+      <a href="/Bracelets" class="dropbtn">Bracelets</a>
+      <div class="dropdown-content">
+        <a href="/Silver bracelets">Silver bracelets</a>
+        <a href="/Gold bracelets">Gold bracelets</a>
+        <a href="/Anklets">Anklets</a>
+      </div>
+    </div>
+
+
+    <a href="/BEST SELLERS">BEST SELLERS</a>
+
+    <a href="/SALE">SALE</a>
+
+    <a href="/Contact">Contact</a>
+
+    <a href="/About">About</a>
+
+    <a href="/Admin">Admin</a>
+
+  </div>
+
+  <form action="#" id="getinform">
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" id="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="psw" required>
+
+      <button type="submit" id="login">Login</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+
+  <h1 id="welcomeMessage"> </h1>
+  <div id="allupdate">
+    <input id="prodname" placeholder="name of product" />
+    <input id="prodprice" placeholder="enter new price" />
+    <button id="updatebtn">Update</button>
+  </div>
+  <div id="allcreate">
+    <input id="newprod" placeholder="name of product" />
+    <input id="newprice" placeholder="enter new price" />
+    <input id="newquantity" placeholder="enter quantity" /> <!-- newly added -->
+    <input id="newcategory" placeholder="enter category" /> <!-- newly added -->
+    <input type="file" id="newimg" />
+    <button id="createbtn">CREATE</button>
+  </div>
+
+
+
+  <div id="alldelete">
+    <input id="delname" placeholder="name of product you want to delete" />
+    <button id="deleteBtn">Delete</button>
+
+    <h3>List</h3>
+
+    <div id="productContainer"></div>
+
+    <br /><br />
+    <h1>Chart</h1>
+    <h3>הטבלה השמאלית מראה את הכמות שקיים במלאי מכל מוצר</h3>
+    <h3>הטבלה הימנית מראה איזה חלק כל מוצר מהווה באחוזים מסך כל המוצרים הקימים במלאי</h3>
+
+    <span id="chartContainer"></span>
+
+
+    <span id="pieChartContainer">
+    </span>
+
+
+  </div>
+  <script src="/adminpage.js"></script>
+</body>
+
 </html>

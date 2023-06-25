@@ -8,7 +8,7 @@ const router = express.Router();
 const upload = multer({ dest: path.join(__dirname, "../public/img/") });
 
 router.post("/api/createProduct", async (req, res) => {
-  const { name, price, image } = req.body;
+  const { name, price, image, quantity, category } = req.body;
   const isExist = await Product.findOne({ name });
 
   if (isExist) {
@@ -18,11 +18,13 @@ router.post("/api/createProduct", async (req, res) => {
     name,
     price,
     image,
-   
+    quantity,
+    category,
   });
   await product.save();
   res.send(product);
 });
+
 
 router.post("/api/upload", upload.single("file"), (req, res) => {
   const fileName = req.file.filename + ".png";

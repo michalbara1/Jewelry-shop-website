@@ -144,8 +144,8 @@ document.getElementById("transaction").addEventListener("click", async (e) => {
 });
 
 
- // קביעת אירוע לחיצה על הכפתור
-document.getElementById("transaction").addEventListener("click", function(event) {
+// קביעת אירוע לחיצה על הכפתור
+document.getElementById("transaction").addEventListener("click", function (event) {
   event.preventDefault(); // מניעת השליחה הרגילה של הטופס
   // יצירת חלונית עם הודעה וכפתור "חזרה לעמוד הבית"
   var successPopup = document.createElement("div");
