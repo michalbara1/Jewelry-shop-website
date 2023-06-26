@@ -1,4 +1,5 @@
 const { Product } = require("../models/product");
+const {User} = require("../models/user");
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
@@ -25,6 +26,22 @@ router.post("/api/createProduct", async (req, res) => {
   res.send(product);
 });
 
+router.post("/api/createUser", async (req, res) => {
+  const { email, password, firstname, lastname } = req.body;
+  const isExist = await User.findOne({ email });
+  if (isExist) {
+    return res.send("Email already in use");
+  }
+  const user = new User({
+    email,
+    password,
+    firstname,
+    lastname,
+    cart: {},
+  });
+  await user.save();
+  res.send(user);
+});
 
 router.post("/api/upload", upload.single("file"), (req, res) => {
   const fileName = req.file.filename + ".png";
