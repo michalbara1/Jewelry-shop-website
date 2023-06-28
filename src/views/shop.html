@@ -11,7 +11,6 @@
             ;
             margin: 0;
             padding: 0;
-
         }
 
         /* Header Styles */
@@ -153,15 +152,14 @@
 
     <script>
         let storage;
-        addEventListener("click", () => {
-
-        })
         if (localStorage.getItem("user") != null) {
             storage = JSON.parse(localStorage.getItem("user"));
         }
         const userId = storage ? storage._id : null;
 
-        const addToCart = async (productName, price) => {
+        const addToCart = async (productName, price, productId) => {
+            const quantityInput = document.getElementById(`quantityInput${productId}`);
+            const quantity = parseInt(quantityInput.value);
 
             const res = await fetch("/api/addToCart", {
                 method: "POST",
@@ -172,12 +170,13 @@
                     userId,
                     productName,
                     price,
+                    quantity,
                 }),
             });
+
             const data = await res.json();
             console.log(data);
             localStorage.setItem("user", JSON.stringify(data));
-
         };
 
         // Fetch all products from MongoDB
@@ -204,31 +203,30 @@
                             (price === '100-200' && product.price > 100 && product.price <= 200) ||
                             (price === '200+' && product.price > 200))
                     );
+
                     // Generate HTML for filtered products or all products if search input is empty
                     const productHTML = (searchTerm !== '' || category !== 'All' || price !== 'All')
                         ? filteredProducts.map(product => {
                             return `
-              <div class="product">
-                <img src="${product.image}" alt="${product.name}">
-                <h3>name: ${product.name}</h3>
-                <h3>price: $${product.price}</h3>
-                ${console.log(product.price)};
-                <p>${product.description}</p>
-              </div>
-            `;
+                                <div class="product">
+                                    <img src="${product.image}" alt="${product.name}">
+                                    <h3>name: ${product.name}</h3>
+                                    <h3>price: $${product.price}</h3>
+                                    <p>${product.description}</p>
+                                </div>
+                            `;
                         }).join('')
                         : products.map(product => {
                             return `
-                            <div class="product">
-    <img src="${product.image}" alt="${product.name}">
-    <h3>name: ${product.name}</h3>
-    <h3>price: $${product.price}</h3>
-    ${console.log(product.price)};
-    <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
-</div>
-        `;
+                                <div class="product">
+                                    <img src="${product.image}" alt="${product.name}">
+                                    <h3>name: ${product.name}</h3>
+                                    <h3>price: $${product.price}</h3>
+                                    <input type="number" value="1" id="quantityInput${product._id}">
+                                    <button onclick="addToCart('${product.name}', ${product.price}, '${product._id}')">Add to Cart</button>
+                                </div>
+                            `;
                         }).join('');
-
 
                     // Inject the generated product HTML into the products container
                     productsContainer.innerHTML = productHTML;
@@ -246,6 +244,5 @@
     </script>
 
     <script src="/shop.js"></script>
-
 
 </html>

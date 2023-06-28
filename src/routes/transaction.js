@@ -8,7 +8,7 @@ router.post("/api/transaction", async (req, res) => {
   const user = await User.findOne({ _id: userid });
   if (!user) {
     return res.send(
-      "User doesnt exist"
+      "User doesnt exist!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     );
   }
 

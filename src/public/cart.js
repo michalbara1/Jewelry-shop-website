@@ -16,11 +16,10 @@ for (const name of Object.keys(storage.cart)) {
 
   const h6 = document.createElement("h6");
   h6.className = "my-0";
-  h6.innerHTML = `${name} (${name})`; //פה
-
+  h6.innerHTML = `${name} (${storage.cart[name].quantity})`;
   const span = document.createElement("span");
   span.className = "text-body-secondary";
-  span.innerHTML = `$${storage.cart[name].price }`;
+  span.innerHTML = `$${storage.cart[name].price}`;
 
   const btn = document.createElement("button");
   btn.innerHTML = "Delete";
@@ -106,4 +105,10 @@ document.getElementById("transaction").addEventListener("click", async (e) => {
   while (cartlist.firstChild) {
     cartlist.removeChild(cartlist.firstChild);
   }
+  const li = document.createElement("li");
+  li.className = "list-group-item d-flex justify-content-between";
+  li.innerHTML = "No products in cart";
+  cartlist.appendChild(li);
+  document.getElementById("numofprod").innerHTML = 0;
+  document.getElementById("totalprice").innerHTML = "$0";
 });

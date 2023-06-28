@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/api/order", async (req, res) => {
   try {
-    const { userId, productName, price } = req.body;
+    const { userId, productName, price, quantity } = req.body; // Add quantity to the destructured variables
 
     // Find the user by their ID and update their cart in the database
     const user = await User.findById(userId);
@@ -14,14 +14,13 @@ router.post("/api/order", async (req, res) => {
       return res.status(404).send({ error: "User not found" });
     }
 
-    
     const transaction = user.transaction;
     transaction[productName] = {
       price,
+      quantity, // Add quantity to the transaction object
     };
     user.transaction = transaction;
     user.markModified("transaction");
-    console.log(user);
     await user.save();
 
     res.send(user);
