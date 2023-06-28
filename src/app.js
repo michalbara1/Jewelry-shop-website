@@ -65,10 +65,10 @@ app.get("/products", async (req, res) => {
   }
 });
 
+
 app.get("/d3", async (req, res) => {
   try {
     const products = await Product.find({}, { name: 1, quantity: 1, _id: 0 });
-    console.log("Products:", products); // Add this line to check the products
 
     res.json(products);
   } catch (error) {

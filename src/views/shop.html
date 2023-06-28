@@ -204,28 +204,30 @@
                             (price === '100-200' && product.price > 100 && product.price <= 200) ||
                             (price === '200+' && product.price > 200))
                     );
+                    // Generate HTML for filtered products or all products if search input is empty
                     const productHTML = (searchTerm !== '' || category !== 'All' || price !== 'All')
-    ? filteredProducts.map(product => {
-        return `
-            <div class="product">
-                <img src="img/${product.name}.jpg" alt="${product.name}">
-                <h3>name: ${product.name}</h3>
-                <h3>price: $${product.price}</h3>
-                <p>${product.description}</p>
-            </div>
-        `;
-    }).join('')
-    : products.map(product => {
-        return `
-            <div class="product">
-                <img src="img/${product.name}.jpg" alt="${product.name}">
+                        ? filteredProducts.map(product => {
+                            return `
+              <div class="product">
+                <img src="${product.image}" alt="${product.name}">
                 <h3>name: ${product.name}</h3>
                 <h3>price: $${product.price}</h3>
                 ${console.log(product.price)};
-                <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
-            </div>
+                <p>${product.description}</p>
+              </div>
+            `;
+                        }).join('')
+                        : products.map(product => {
+                            return `
+                            <div class="product">
+    <img src="${product.image}" alt="${product.name}">
+    <h3>name: ${product.name}</h3>
+    <h3>price: $${product.price}</h3>
+    ${console.log(product.price)};
+    <button onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
+</div>
         `;
-    }).join('');
+                        }).join('');
 
 
                     // Inject the generated product HTML into the products container

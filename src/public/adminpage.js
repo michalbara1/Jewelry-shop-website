@@ -51,6 +51,28 @@ const newprice = document.getElementById("newprice");
 const newimg = document.getElementById("newimg");
 
 document.getElementById("createbtn").addEventListener("click", async () => {
+  const newname = document.getElementById("newprod");
+  const newprice = document.getElementById("newprice");
+  const newimg = document.getElementById("newimg");
+  const newquantity = document.getElementById("newquantity");
+  const newcategory = document.getElementById("newcategory");
+
+  // Get the category input value
+  const categoryInput = newcategory.value;
+
+  // Define the allowed categories
+  const allowedCategories = ["Rings", "Necklaces", "Bracelets"];
+
+  // Check if the category is valid
+  if (!allowedCategories.includes(categoryInput)) {
+    // Display an alert if the category is invalid
+    alert(
+      "Invalid category! Please choose one of the following options: Rings, Necklaces, Bracelets."
+    );
+    return; // Stop further execution
+  }
+
+
   const file = newimg.files[0];
   const formData = new FormData();
   formData.append("file", file);
@@ -71,12 +93,16 @@ document.getElementById("createbtn").addEventListener("click", async () => {
       name: newname.value,
       price: newprice.value,
       image: `/img/${filename.fileName}`,
-      category: newcategory.value,
+      quantity: newquantity.value, // Use the validated quantity value
+      category: categoryInput, // Use the validated category value
     }),
   });
+  // Reset the form inputs
   newname.value = "";
   newprice.value = "";
   newimg.value = "";
+  newquantity.value = "";
+  newcategory.value = "";
 });
 
 document.getElementById("deleteBtn").addEventListener("click", async () => {
