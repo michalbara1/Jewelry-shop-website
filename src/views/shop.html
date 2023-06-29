@@ -3,7 +3,9 @@
 
 <head>
     <title>Online Shop</title>
-    <style>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+   <link rel="stylesheet" href="home.css">
+   <style>
         /* Global Styles */
         body {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -15,10 +17,10 @@
 
         /* Header Styles */
         header {
-            background-color: rgb(210, 180, 140);
+            background-color:white;
             color: #fff;
             padding: 10px;
-            text-align: center;
+            
         }
 
         /* Navigation Styles */
@@ -108,14 +110,43 @@
 
 <body>
     <header>
-        <h1>Online Shop</h1>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="/">Back To Home</a></li>
-        </ul>
-    </nav>
+        <span>
+          <a href="/login" class='fa fa-user' style='font-size: 32px;'></a> &nbsp
+          <a href="/cart" class="fa fa-shopping-cart" style='font-size: 32px;'></a> &nbsp
+          <i class='fa fa-heart-o' style='font-size: 32px;'></i> &nbsp
+          
+        </span>
+    
+        <p id="username"></p>
+    
+        <div>
+          <canvas id="myCanvas" width="300" height="100"> </canvas>
+          <img id="logoImage" src="logo%20picture.webp" style="width: 150px; height: 150px;">
+        </div>
+    
+      </header>
+      <div class="topnav">
+    
+        <a class="active" href="/">Home</a>
+        <a href="/shop">Shop</a>
+        <a href="/myOrders">My orders</a>
+        
+    
+        <a href="/BEST SELLERS">BEST SELLERS</a>
+    
+        <a href="/SALE">SALE</a>
+    
+        <a href="/Contact">Contact</a>
+    
+        <a href="/About">About</a>
+    
+        
+    
+    
+        <a href="/Admin">Admin</a>
+    
+      </div>
+    
 
     <div class="container">
         <h1>Welcome to our Online Shop!</h1>

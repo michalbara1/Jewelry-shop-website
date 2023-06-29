@@ -285,6 +285,8 @@ footer .contact i {
   background-color: rgb(157, 100, 46);
   color: #e1e1e1;
 }
+
+
 /*About Page*/
 #about-head{
     display: flex;
@@ -470,3 +472,31 @@ footer .contact i {
     font-size: 20px;
     
   }
+
+  .btns {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn {
+    background-color: rgb(243, 237, 232);
+    color: #070606;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color:  rgb(243, 237, 232);
+    color: #0c0b0b;
+  }
+  
+  .btn-primary:hover {
+    background-color:#b39986;
+  }
+  
+  .btn-primary:active {
+    background-color: #b39986;
+  }
+  

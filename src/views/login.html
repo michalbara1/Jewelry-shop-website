@@ -9,6 +9,7 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
   <link href="login&signup.css" rel="stylesheet">
   <script src="app.js"> </script>
+  <link rel="stylesheet" href="home.css">
   
   
   <title>login</title>
@@ -18,11 +19,12 @@
   <header>
     <span>
       <a href="/login" class='fa fa-user' style='font-size: 32px;'></a> &nbsp
-      <i class="fa fa-shopping-cart" style='font-size: 32px;'></i> &nbsp
+      <a href="/cart" class="fa fa-shopping-cart" style='font-size: 32px;'></a> &nbsp
       <i class='fa fa-heart-o' style='font-size: 32px;'></i> &nbsp
+      
     </span>
-     
-    <p class="username"></p>
+
+    <p id="username"></p>
 
     <div>
       <canvas id="myCanvas" width="300" height="100"> </canvas>
@@ -35,7 +37,8 @@
   <div class="topnav">
 
     <a class="active" href="/">Home</a>
-
+    <a href="/shop">Shop</a>
+    <a href="/myOrders">My orders</a>
     <div class="dropdown">
       <a href="/Rings" class="dropbtn">Rings</a>
       <div class="dropdown-content">
@@ -63,7 +66,6 @@
       </div>
     </div>
 
-
     <a href="/BEST SELLERS">BEST SELLERS</a>
 
     <a href="/SALE">SALE</a>
@@ -72,16 +74,13 @@
 
     <a href="/About">About</a>
 
+    
+
+
     <a href="/Admin">Admin</a>
 
   </div>
 
-
-  <div>
-    <br>
-    <i class='fa fa-search'></i>
-    <input type="text" id="searchbar" name="fname" placeholder="Search products"></input>
-  </div>
 
 <div class="container-signup">
     <h1 class="container-h" >My Account</h1><br>
@@ -94,7 +93,7 @@
     <h1 class="form-title">Login</h1>
     <form action="#" id="login-form">
       <title>Sign in</title>
-      <p class="title">Please sign in</p>
+      <p class="register">Please sign in</p>
       <div class="thing">
         <input type="email" class="boxes" id="email" placeholder="Enter Email" />
         <input
@@ -103,7 +102,7 @@
           id="password"
           placeholder="Enter Password"
         />
-        <div class="register">Dont have an account? <a class="register" href="/signup">login here</a></div>
+        <div class="register">Don't have an account? <a class="register" href="/signup">signup here</a></div>
         <div class="btns">
           <button type="button" id="signin" class="btn btn-primary">
             sign in

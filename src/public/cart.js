@@ -30,7 +30,7 @@ for (const name of Object.keys(storage.cart)) {
     const userId = storage._id;
 
     try {
-      const response = await fetch("/api/deleteProductFromCart", {
+      const response = await fetch("/api/deletefromcart", {
         method: "DELETE",
         body: JSON.stringify({ userId, productName }),
         headers: {

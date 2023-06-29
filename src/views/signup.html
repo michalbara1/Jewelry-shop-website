@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
   <link href="login&signup.css" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
 
   
   <title>Signup</title>
@@ -15,14 +16,17 @@
 <body>
   <header>
     <span>
-        <a href="login&signup\login.html"><i class="fa fa-user" style="font-size:32px;"></i></a> &nbsp
-      <i class="fa fa-shopping-cart" style='font-size: 32px;'></i> &nbsp
+      <a href="/login" class='fa fa-user' style='font-size: 32px;'></a> &nbsp
+      <a href="/cart" class="fa fa-shopping-cart" style='font-size: 32px;'></a> &nbsp
       <i class='fa fa-heart-o' style='font-size: 32px;'></i> &nbsp
+      
     </span>
+
+    <p id="username"></p>
 
     <div>
       <canvas id="myCanvas" width="300" height="100"> </canvas>
-      <img id="logoImage" src="logo picture.webp" style="width: 150px; height: 150px;">
+      <img id="logoImage" src="logo%20picture.webp" style="width: 150px; height: 150px;">
     </div>
 
   </header>
@@ -30,53 +34,51 @@
 
   <div class="topnav">
 
-    <a class="active" href="#home">Home</a>
-
+    <a class="active" href="/">Home</a>
+    <a href="/shop">Shop</a>
+    <a href="/myOrders">My orders</a>
     <div class="dropdown">
-      <a href="#Rings" class="dropbtn">Rings</a>
+      <a href="/Rings" class="dropbtn">Rings</a>
       <div class="dropdown-content">
-        <a href="#">Silver rings</a>
-        <a href="#">Gold rings</a>
-        <a href="#">wedding rings</a>
+        <a href="/Silver rings">Silver rings</a>
+        <a href="/Gold rings">Gold rings</a>
+        <a href="/Wedding rings">Wedding rings</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <a href="#Necklaces" class="dropbtn">Necklaces</a>
+      <a href="/Necklaces" class="dropbtn">Necklaces</a>
       <div class="dropdown-content">
-        <a href="#">Silver necklaces</a>
-        <a href="#">Gold necklaces</a>
-        <a href="#">Pearls necklaces</a>
+        <a href="/Silver necklaces">Silver necklaces</a>
+        <a href="/Gold necklaces">Gold necklaces</a>
+        <a href="/Pearls necklaces">Pearls necklaces</a>
       </div>
     </div>
 
     <div class="dropdown">
-      <a href="#Bracelets" class="dropbtn">Bracelets</a>
+      <a href="/Bracelets" class="dropbtn">Bracelets</a>
       <div class="dropdown-content">
-        <a href="#">Silver bracelets</a>
-        <a href="#">Gold bracelets</a>
-        <a href="#">Anklets</a>
+        <a href="/Silver bracelets">Silver bracelets</a>
+        <a href="/Gold bracelets">Gold bracelets</a>
+        <a href="/Anklets">Anklets</a>
       </div>
     </div>
 
+    <a href="/BEST SELLERS">BEST SELLERS</a>
 
-    <a href="#BEST SELLERS">BEST SELLERS</a>
+    <a href="/SALE">SALE</a>
 
-    <a href="#SALE">SALE</a>
+    <a href="/Contact">Contact</a>
 
-    <a href="#contact">Contact</a>
+    <a href="/About">About</a>
 
-    <a href="#About">About</a>
+    
 
-    <a href="#about">Admin</a>
+
+    <a href="/Admin">Admin</a>
 
   </div>
 
-
-  <div>
-    <br>
-    <i class='fa fa-search'></i>
-    <input type="text" id="searchbar" name="fname"></input>
 <br>  
 <div class="container-signup">
   <h2 class="container-h" >My Account</h3>
@@ -90,7 +92,7 @@
   <form action="#" id="signup-form">
     <div class="main-user-info">
       <title>Sign in</title>
-      <p class="title">Please sign in</p>
+      <p class="register">Please sign in</p>
       <div class="thing">
         <input type="email" class="boxes" id="email" placeholder="Enter Email" />
         <input

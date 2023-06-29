@@ -9,6 +9,7 @@ const { deleteRouter } = require("./routes/delete");
 const { updateCartRouter } = require("./routes/cart");
 const { Product } = require("./models/product");
 const { transactionRouter } = require("./routes/transaction");
+const deleteproduct = require("./routes/deletefromcart");
 
 const app = express();
 app.use(express.json());
@@ -25,6 +26,8 @@ app.use(getRouter);
 app.use(signinRouter);
 app.use(transactionRouter);
 app.use(deleteRouter);
+app.use(deleteproduct);
+
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/home.html"));
@@ -59,6 +62,7 @@ app.get("/shop", (req, res) => {
 app.get("/myOrders", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/myOrders.html"));
 });
+
 
 app.get("/products", async (req, res) => {
   try {
