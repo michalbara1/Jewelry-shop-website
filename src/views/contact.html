@@ -72,8 +72,8 @@
 
     <section id="contact-details" class="section-p1">
         <div class="details">
-            <span>GET IN TOUCH</span>
-            <h2>Visit us in agency location or contact us today</h2>
+
+            <h2>Visit us in agency locations or contact us today</h2>
             <h3>Head Office</h3>
             <div>
                 <li>
@@ -91,39 +91,134 @@
             </div>
         </div>
 
-        <div class="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.677447554664!2d34.77368982466807!3d31.96964617401127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1502b3f42ba5a7e5%3A0x37541fb9d63f060a!2z15DXnNeZINeV15nXltecIDIsINeo15DXqdeV158g15zXpteZ15XXnw!5e0!3m2!1siw!2sil!4v1686412247167!5m2!1siw!2sil"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+        <section id="form-details">
+            <form action="">
+                <span>LEAVE A MESSAGE</span>
+                <h2>We love to hear from you</h2>
+                <input type="text" placeholder="Yout Name">
+                <input type="text" placeholder="E-mail">
+                <input type="text" placeholder="Subject">
+                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+                <button class="normal" onclick="openPopup()">Submit</button>
+                <script>
+                    function openPopup() {
+                        // Create the new window
+                        var popup = window.open("", "popup", "width=400,height=300");
+
+
+                        var popupContent = "<h1>Your details have been entered into the system :)";
+
+                        // Display the content in the new window
+                        popup.document.write(popupContent);
+                    }
+                </script>
+
+
+            </form>
+
+        </section>
+
+        <div class="branch-container">
+            <div class="branch">
+
+                <div class="branch-details">
+                    <h3>COCO JEWELRY-RAMAT AVIV</h3>
+                    <p>Location: Address 1</p>
+                    <p>Phone: 035522133</p>
+                    <p>Hours:
+                        Sunday to Thursday: 10:00am to 22:00</p>
+                </div>
+                <div class="map-container" id="map1"></div>
+            </div>
+
+            <div class="branch">
+
+                <div class="branch-details">
+                    <h3>COCO JEWELRY-HAZAV</h3>
+                    <p>Location: Address 2</p>
+                    <p>Phone: 035522144</p>
+                    <p>Hours: Sunday to Thursday: 10:00am to 22:00</p>
+                </div>
+                <div class="map-container" id="map2"></div>
+            </div>
+
+            <div class="branch">
+
+                <div class="branch-details">
+                    <h3>COCO JEWELRY-COLMAN</h3>
+                    <p>Location: Address 3</p>
+                    <p>Phone: 035522155</p>
+                    <p>Hours: Monday-Friday 7am-8pm</p>
+                </div>
+                <div class="map-container" id="map3"></div>
+            </div>
+
+            <div class="branch">
+
+                <div class="branch-details">
+                    <h3>COCO JEWELRY-ICE MALL</h3>
+                    <p>Location: Address 4</p>
+                    <p>Phone: 085522133</p>
+                    <p>Hours: Sunday to Thursday: 10:00am to 22:00</p>
+                </div>
+                <div class="map-container" id="map4"></div>
+            </div>
         </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xsqtuuzminYxX_s9sqzILXU2Wv5OrRo"></script>
+        <script>
+            function initMap() {
+                // Branch 1 -Ramat Aviv -Tel Aviv
+                var map1 = new google.maps.Map(document.getElementById('map1'), {
+                    center: { lat: 32.112497671526526, lng: 34.79593606166199 },
+                    zoom: 12
+
+                });
+                var marker1 = new google.maps.Marker({
+                    position: { lat: 32.112497671526526, lng: 34.79593606166199 },
+                    map: map1
+                });
+
+                // Branch 2 - Rishon Lezsion - Hazav Mall 
+                var map2 = new google.maps.Map(document.getElementById('map2'), {
+                    center: { lat: 31.99084966020157, lng: 34.774850630978186 },
+                    zoom: 12
+
+                });
+                var marker2 = new google.maps.Marker({
+                    position: { lat: 31.99084966020157, lng: 34.774850630978186 },
+                    map: map2
+                });
+
+                // Branch 3 - Rishon Lezion - colman , the main branch
+                var map3 = new google.maps.Map(document.getElementById('map3'), {
+                    center: { lat: 31.97004011749822, lng: 34.77106171934049 },
+                    zoom: 12
+
+                });
+                var marker3 = new google.maps.Marker({
+                    position: { lat: 31.97004011749822, lng: 34.77106171934049 },
+                    map: map3
+                });
+
+                // Branch 4 -Eilat - ice Mall
+                var map4 = new google.maps.Map(document.getElementById('map4'), {
+                    center: { lat: 29.55434510020439, lng: 34.965620061770295 },
+                    zoom: 12
+                });
+                var marker4 = new google.maps.Marker({
+                    position: { lat: 29.55434510020439, lng: 34.965620061770295 },
+                    map: map4
+                });
+            }
+
+        </script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xsqtuuzminYxX_s9sqzILXU2Wv5OrRo&callback=initMap"></script>
     </section>
 
-    <section id="form-details">
-        <form action="">
-            <span>LEAVE A MESSAGE</span>
-            <h2>We love to hear from you</h2>
-            <input type="text" placeholder="Yout Name">
-            <input type="text" placeholder="E-mail">
-            <input type="text" placeholder="Subject">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <button class="normal" onclick="openPopup()">Submit</button>
-            <script>
-                function openPopup() {
-                    // Create the new window
-                    var popup = window.open("", "popup", "width=400,height=300");
-
-
-                    var popupContent = "<h1>Your details have been entered into the system :)";
-
-                    // Display the content in the new window
-                    popup.document.write(popupContent);
-                }
-            </script>
-
-
-        </form>
-    </section>
 
 
     <footer class="Contact">
