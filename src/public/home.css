@@ -406,3 +406,13 @@ footer .contact i {
   border: 1px solid #cce7d0;
 
 }
+
+.myOrderLink {
+  color:#222; /* שינוי צבע הקישור לכחול */
+  text-decoration: none; /* הסרת קו תחתון */
+  font-weight: bold; /* שינוי משקל הגופן למודגש */
+}
+
+.myOrderLink:hover {
+  color: rgb(214, 204, 204); /* שינוי צבע הקישור לאדום בעת העברת העכבר עליו */
+}
