@@ -6,46 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/public/admin.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
+  <script src="logo.js"> </script>
 
   <title>Document</title>
 </head>
 
 <body>
+  <div>
+    <canvas id="myCanvas" width="300" height="100"> </canvas>
+    <img id="logoImage" src="logo%20picture.webp" style="width: 150px; height: 150px;">
+  </div>
+
+
   <div class="topnav">
 
     <a class="active" href="/">Home</a>
+    <a href="/shop">Shop</a>
 
-    <div class="dropdown">
-      <a href="/Rings" class="dropbtn">Rings</a>
-      <div class="dropdown-content">
-        <a href="/Silver rings">Silver rings</a>
-        <a href="/Gold rings">Gold rings</a>
-        <a href="/Wedding rings">Wedding rings</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <a href="/Necklaces" class="dropbtn">Necklaces</a>
-      <div class="dropdown-content">
-        <a href="/Silver necklaces">Silver necklaces</a>
-        <a href="/Gold necklaces">Gold necklaces</a>
-        <a href="/Pearls necklaces">Pearls necklaces</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <a href="/Bracelets" class="dropbtn">Bracelets</a>
-      <div class="dropdown-content">
-        <a href="/Silver bracelets">Silver bracelets</a>
-        <a href="/Gold bracelets">Gold bracelets</a>
-        <a href="/Anklets">Anklets</a>
-      </div>
-    </div>
-
-
-    <a href="/BEST SELLERS">BEST SELLERS</a>
-
-    <a href="/SALE">SALE</a>
+    <a href="/myOrders">My orders</a>
 
     <a href="/Contact">Contact</a>
 
@@ -54,6 +32,7 @@
     <a href="/Admin">Admin</a>
 
   </div>
+
 
   <form action="#" id="getinform">
     <div class="container">
@@ -98,8 +77,8 @@
 
     <br /><br />
     <h1>Chart</h1>
-    <h3>הטבלה השמאלית מראה את הכמות שקיים במלאי מכל מוצר</h3>
-    <h3>הטבלה הימנית מראה איזה חלק כל מוצר מהווה באחוזים מסך כל המוצרים הקימים במלאי</h3>
+    <h3>The left table shows the quantity in stock of each product</h3>
+    <h3>The right table shows what part each product represents in percentage of the total of all products in stock</h3>
 
     <span id="chartContainer"></span>
 

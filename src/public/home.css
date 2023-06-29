@@ -1,8 +1,20 @@
 @import url('https://fonts.cdnfonts.com/css/crava');
 
+form
+{
+
+  margin-left: 500px;
+}
+
+video{
+
+  margin-left: 500px;
+}
+
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 16px;
+  flex: 1 1 auto;
 }
 
 .fa {
@@ -311,10 +323,11 @@ footer .contact i {
 .branch {
   width: 300px;
   padding: 20px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: pink;
+  margin-bottom: 500px;
+  display: flex;
 
 }
 
