@@ -11,6 +11,8 @@
 </head>
 
 <body>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v17.0&appId=209618204902155&autoLogAppEvents=1" nonce="Px687Y7h"></script>
   <header>
     <span>
       <a href="/login" class='fa fa-user' style='font-size: 32px;'></a> &nbsp
@@ -20,11 +22,9 @@
 
     <p id="username"></p>
 
-    <div>
-      <canvas id="myCanvas" width="300" height="100"> </canvas>
-      <img id="logoImage" src="logo%20picture.webp" style="width: 150px; height: 150px;">
-    </div>
-
+    
+      <img class="can" src="d77tsh0g.png">
+    <br>
   </header>
 
 
@@ -99,19 +99,27 @@
 
 
   <div id="images"> </div>
-
-  <video controls autoplay muted loop src="video.mp4" width="500">
-
-
-  </video>
-
+<br>
+  <div class="cont">
+    <div class="video-container">
+      <video controls autoplay muted loop src="video.mp4" width="500"></video>
+    </div>
+    <div class="facebook-container">
+      <div class="fb-page" data-href="https://www.facebook.com/cocojewelrybb/" data-tabs="timeline" data-width="500"
+        data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+        data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/cocojewelrybb/" class="fb-xfbml-parse-ignore"><a
+            href="https://www.facebook.com/cocojewelrybb/">‏‎Coco Jewelry‎‏</a></blockquote>
+      </div>
+    </div>
+  </div>
 
   <br>
   <div class="container-signup2">
     <h1 class="container-h"></h1><br>
     <h4 class="container-h"></h4><br>
   </div>
-
+  
   <div class="hero-section">
     <div class="hero-content">
       <h1>New Arrivals</h1>
@@ -152,11 +160,18 @@
       <i class="fa fa-cc-amex" style='font-size:29px;'></i>
     </div>
 
-
+ 
   </footer>
+  <br>
+  <div>
+    <canvas id="myCanvas" width="300" height="100"> </canvas>
+    <img id="logoImage" src="logo%20picture.webp" style="width: 150px; height: 150px;">
+  </div>
+
   <div class="copyright">
     <p>&copy; 2023, COCO JEWELRY</p>
   </div>
+  <br>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>

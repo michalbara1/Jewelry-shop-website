@@ -5,12 +5,24 @@ form
 
   margin-left: 500px;
 }
-
-video{
-
-  margin-left: 500px;
+.can{
+  margin-left: 480px;
+}
+.cont{
+  display: flex;
+  justify-content: space-between;
 }
 
+.video-container,
+.facebook-container {
+  width: 50%;
+  padding: 0 10px;
+}
+
+.fb-page,
+video {
+  width: 100%;
+}
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 16px;
@@ -431,4 +443,9 @@ footer .contact i {
 
 .myOrderLink:hover {
   color: rgb(214, 204, 204); /* שינוי צבע הקישור לאדום בעת העברת העכבר עליו */
+}
+.username{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  flex: 1 1 auto;
 }
