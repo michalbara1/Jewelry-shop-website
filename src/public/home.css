@@ -277,107 +277,32 @@ footer .contact i {
 
 /*Contact Page*/
 
-#contact-details {
+.container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
 
-#contact-details .details {
-  width: 40%;
-}
-
-#contact-details .details span,
-#form-details form {
-  font-size: 12px;
-}
-
-#contact-details .details h2,
-#form-details form h2 {
-  font-size: 26px;
-  line-height: 35px;
-  padding: 20px 0;
-}
-
-#contact-details .details h3 {
-  font-size: 16px;
-  padding-bottom: 15px;
-
-}
-
-#contact-details .details li {
-  list-style: none;
-  display: flex;
-  padding: 10px 0;
-}
-
-#contact-details .details li i {
-  font-size: 14px;
-  padding-right: 22px;
-
-}
-
-#contact-details .details li p {
-  margin: 0;
-  font-size: 14px;
-}
-
-
-
-.branch-container {
-  display: flex;
-  justify-content: space-between;
-  /*margin-bottom: 20px;*/
-
-
-}
-
-.branch {
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: pink;
-  margin-bottom: 500px;
-  display: flex;
-
-}
-
-.branch img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.branch h3 {
-  margin-top: 0;
-}
-
+/* Reset margin on maps and make them full-width */
 .map-container {
   width: 100%;
   height: 200px;
-  margin-top: 10px;
+  margin: 0;
 }
 
-#form-details form {
-  width: 65%;
+/* Adjust branch container styling */
+.branch-container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-#form-details form input,
-#form-details form textarea {
+  justify-content: space-between;
   width: 100%;
-  padding: 12px 15px;
-  outline: none;
-  margin-bottom: 20px;
-  border: 1px solid #e1e1e1;
 }
 
-#form-details form button {
-  background-color: rgb(157, 100, 46);
-  color: #e1e1e1;
+/* Other existing CSS styles... */
+
+/* Add margin to create space between maps and form */
+#form-details {
+  margin-top: 40px; /* Adjust the value as needed */
+  text-align: center; /* Center the form */
 }
 
 .normal {

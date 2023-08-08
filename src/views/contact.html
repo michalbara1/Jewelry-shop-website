@@ -42,8 +42,57 @@
     
       </div>
 
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xsqtuuzminYxX_s9sqzILXU2Wv5OrRo"></script>
+      <script>
+          function initMap() {
+              // Branch 1 -Ramat Aviv -Tel Aviv
+              var map1 = new google.maps.Map(document.getElementById('map1'), {
+                  center: { lat: 32.112497671526526, lng: 34.79593606166199 },
+                  zoom: 12
 
+              });
+              var marker1 = new google.maps.Marker({
+                  position: { lat: 32.112497671526526, lng: 34.79593606166199 },
+                  map: map1
+              });
 
+              // Branch 2 - Rishon Lezsion - Hazav Mall 
+              var map2 = new google.maps.Map(document.getElementById('map2'), {
+                  center: { lat: 31.99084966020157, lng: 34.774850630978186 },
+                  zoom: 12
+
+              });
+              var marker2 = new google.maps.Marker({
+                  position: { lat: 31.99084966020157, lng: 34.774850630978186 },
+                  map: map2
+              });
+
+              // Branch 3 - Rishon Lezion - colman , the main branch
+              var map3 = new google.maps.Map(document.getElementById('map3'), {
+                  center: { lat: 31.97004011749822, lng: 34.77106171934049 },
+                  zoom: 12
+
+              });
+              var marker3 = new google.maps.Marker({
+                  position: { lat: 31.97004011749822, lng: 34.77106171934049 },
+                  map: map3
+              });
+
+              // Branch 4 -Eilat - ice Mall
+              var map4 = new google.maps.Map(document.getElementById('map4'), {
+                  center: { lat: 29.55434510020439, lng: 34.965620061770295 },
+                  zoom: 12
+              });
+              var marker4 = new google.maps.Marker({
+                  position: { lat: 29.55434510020439, lng: 34.965620061770295 },
+                  map: map4
+              });
+          }
+
+      </script>
+      <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xsqtuuzminYxX_s9sqzILXU2Wv5OrRo&callback=initMap"></script>
+  </section>
 
     <section id="contact-details" class="section-p1">
         <div class="details">
@@ -52,48 +101,17 @@
             <h3>Head Office</h3>
             <div>
                 <li>
-                    <i class="fa fa-map-marker"></i>
-                    <p> Elie Wiesel 2 Rishon LeZion</p>
+                    <i class="fa fa-map-marker"></i>  &nbsp  Elie Wiesel 2 Rishon LeZion   
                 </li>
                 <li>
-                    <i class="fa fa-envelope"></i>
-                    <p>COCO@gmail.com </p>
+                    <i class="fa fa-envelope"></i> &nbsp COCO@gmail.com 
                 </li>
                 <li>
-                    <i class="fa fa-clock-o"></i>
-                    <p> Sunday to Thursday:9:00am to 18:00 </p>
+                    <i class="fa fa-clock-o"></i> &nbsp Sunday to Thursday:9:00am to 18:00  
                 </li>
             </div>
         </div>
 
-
-
-        <section id="form-details">
-            <form action="">
-                <span>LEAVE A MESSAGE</span>
-                <h2>We love to hear from you</h2>
-                <input type="text" placeholder="Yout Name">
-                <input type="text" placeholder="E-mail">
-                <input type="text" placeholder="Subject">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                <button class="normal" onclick="openPopup()">Submit</button>
-                <script>
-                    function openPopup() {
-                        // Create the new window
-                        var popup = window.open("", "popup", "width=400,height=300");
-
-
-                        var popupContent = "<h1>Your details have been entered into the system :)";
-
-                        // Display the content in the new window
-                        popup.document.write(popupContent);
-                    }
-                </script>
-
-
-            </form>
-
-        </section>
 
         <div class="branch-container">
             <div class="branch">
@@ -142,57 +160,7 @@
             </div>
         </div>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xsqtuuzminYxX_s9sqzILXU2Wv5OrRo"></script>
-        <script>
-            function initMap() {
-                // Branch 1 -Ramat Aviv -Tel Aviv
-                var map1 = new google.maps.Map(document.getElementById('map1'), {
-                    center: { lat: 32.112497671526526, lng: 34.79593606166199 },
-                    zoom: 12
-
-                });
-                var marker1 = new google.maps.Marker({
-                    position: { lat: 32.112497671526526, lng: 34.79593606166199 },
-                    map: map1
-                });
-
-                // Branch 2 - Rishon Lezsion - Hazav Mall 
-                var map2 = new google.maps.Map(document.getElementById('map2'), {
-                    center: { lat: 31.99084966020157, lng: 34.774850630978186 },
-                    zoom: 12
-
-                });
-                var marker2 = new google.maps.Marker({
-                    position: { lat: 31.99084966020157, lng: 34.774850630978186 },
-                    map: map2
-                });
-
-                // Branch 3 - Rishon Lezion - colman , the main branch
-                var map3 = new google.maps.Map(document.getElementById('map3'), {
-                    center: { lat: 31.97004011749822, lng: 34.77106171934049 },
-                    zoom: 12
-
-                });
-                var marker3 = new google.maps.Marker({
-                    position: { lat: 31.97004011749822, lng: 34.77106171934049 },
-                    map: map3
-                });
-
-                // Branch 4 -Eilat - ice Mall
-                var map4 = new google.maps.Map(document.getElementById('map4'), {
-                    center: { lat: 29.55434510020439, lng: 34.965620061770295 },
-                    zoom: 12
-                });
-                var marker4 = new google.maps.Marker({
-                    position: { lat: 29.55434510020439, lng: 34.965620061770295 },
-                    map: map4
-                });
-            }
-
-        </script>
-        <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3xsqtuuzminYxX_s9sqzILXU2Wv5OrRo&callback=initMap"></script>
-    </section>
+       
 
 
 
