@@ -44,4 +44,3 @@ const fetchimages = async () => {
     document.getElementById("images").appendChild(col);
   });
 };
-
